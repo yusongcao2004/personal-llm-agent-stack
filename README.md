@@ -1,81 +1,123 @@
-# Personal LLM Agent Deployment Stack
+# Personal AI Agent Engineering Portfolio
 
-A documentation-focused portfolio for a personal LLM agent deployment, configuration, routing, and safety project.
+This repository is my portfolio hub for showing how I deploy, build, evaluate, and control multi-model agent systems. It focuses on deployment, cost-aware orchestration, interactive prototyping, multi-LLM coordination, and safety/reliability practices.
 
-This repository does not present a production system or a finished agent framework. It is a written record of how I think about assembling and operating local-first LLM agent tooling: deployment choices, routing strategy, cost controls, human oversight, and reliability safeguards.
+This is not a monorepo that copies every independent project into one place. It combines public-ready documentation, navigation, and selected runnable work while linking out to independent repositories where appropriate.
 
-It also includes one completed interactive prototype, Fish Swarm Simulation, as a concrete example of Codex-assisted development: using a coding agent to move from an idea to a runnable system, then tightening scope, verification, and presentation.
+## Featured Work
 
-## Attribution and Scope
+### 1. Pantheon — Telegram-native Multi-LLM Roundtable
 
-OpenClaw and Hermes Agent are third-party projects. This repository does not claim authorship of either project. Any references to them are for attribution, integration context, and documentation of a personal deployment exploration.
+**Status:** Runnable public project
 
-The work here is intentionally conservative:
+Pantheon lets GPT, DeepSeek, Doubao, and Gemini participate in short roundtable discussions inside a Telegram group. The addressed bot speaks first, the conversation proceeds through bounded rounds, and the system produces a prompt-constrained neutral synthesis with token/cache statistics.
 
-- The LLM agent stack material is documentation-focused rather than a packaged production system.
-- The included Fish Swarm project is a separate Codex-assisted interactive prototype, not a claim that this repository is a finished agent platform.
-- No production-readiness claim is made.
-- The repository focuses on configuration thinking, deployment notes, routing design, safety practices, and lessons learned.
+- [Independent source repository](https://github.com/yusongcao2004/pantheon-llm-roundtable)
+- [Portfolio case study](projects/pantheon/README.md)
 
-## What This Repository Shows
+Pantheon is maintained as an independent public repository. Its full source code is not duplicated in this portfolio hub.
 
-- How a personal LLM agent stack can be documented without overstating implementation maturity.
-- How local deployment decisions affect privacy, latency, cost, and reliability.
-- How model routing can be described as an operational design problem.
-- How human-in-the-loop review can reduce risk in agentic workflows.
-- How safety and reliability controls can be planned before adding more automation.
-- How a coding agent can support rapid interactive prototyping when paired with stable baselines, build verification, and scope control.
+### 2. Personal Agent Deployment Stack — OpenClaw & Hermes Exploration
 
-## Featured Projects and Experiments
+**Status:** Deployment and system-design documentation
 
-### Fish Swarm Simulation · Codex-Assisted Interactive Experiment
+OpenClaw and Hermes Agent are third-party tools. This repository documents my deployment, integration, configuration, routing, safety-boundary, and agent workflow thinking around those tools. It does not claim that I authored either framework.
 
-An interactive swarm intelligence simulation developed through iterative Codex-assisted coding.
+Relevant documentation:
 
-Highlights:
+- [Deployment notes](DEPLOYMENT.md)
+- [Safety notes](SAFETY_NOTES.md)
+- [Lessons learned](LESSONS_LEARNED.md)
 
-- boids-inspired collective motion;
-- 2D Canvas fish-school behavior lab;
-- 3D aquarium observation experiment;
-- predator interaction and configurable simulation parameters;
-- uniform-grid neighbor lookup for simulation performance;
-- engineering lessons from AI-assisted development, scope control, and verification.
+### 3. Cost-Aware Agent Orchestration
 
-Why it belongs in this portfolio:
+**Status:** Engineering capability demonstrated across the portfolio
 
-This project demonstrates how I use a coding agent to rapidly prototype an interactive system, identify scope and performance issues, and turn iterative experiments into a stable, presentable engineering artifact.
+Cost-aware orchestration is not presented here as a standalone software package. It is an engineering capability shown across Pantheon and the routing documentation:
+
+- replacing unnecessary flagship-model calls with lower-cost models;
+- combining models across multiple providers;
+- tracking per-discussion token/cache statistics;
+- using bounded rounds and concise prompting;
+- handling provider-specific request compatibility;
+- controlling thinking mode for cost-sensitive participation.
+
+See [ROUTING_STRATEGY.md](ROUTING_STRATEGY.md) and the [Pantheon case study](projects/pantheon/README.md).
+
+### 4. Fish Swarm Simulation — Codex-Assisted Interactive Prototype
+
+**Status:** Runnable prototype
+
+Fish Swarm Simulation is an embedded runnable project in this repository. It demonstrates AI-assisted iterative development, scope control, simulation performance work, and verification through tests, linting, and builds.
 
 - [Project README](projects/fish-swarm-simulation/README.md)
-- [3D Screenshot](docs/screenshots/fish-swarm/fish-swarm-3d.jpg)
-- [2D Screenshot](docs/screenshots/fish-swarm/fish-swarm-2d.jpg)
-- [Demo GIF notes](docs/demo-gifs/fish-swarm/README.md)
+- [3D screenshot](docs/screenshots/fish-swarm/fish-swarm-3d.jpg)
+- [2D screenshot](docs/screenshots/fish-swarm/fish-swarm-2d.jpg)
 
-> 中文摘要：鱼群工程展示了我如何使用 Codex 进行快速迭代开发：从群体行为设想到可运行的交互原型，并在过程中处理范围控制、性能优化和稳定版本管理问题。
+### 5. Safety & Reliability Practices
 
-## Relevance to Applied AI Systems
+**Status:** Cross-project engineering discipline
 
-This project is relevant to applied AI systems because it frames LLM agents as operational systems rather than demos.
+The portfolio emphasizes conservative engineering practices:
 
-- **Local deployment:** Documents why a personal stack may keep selected models, tools, and data paths close to the user for privacy, latency, and inspectability.
-- **Model routing:** Separates task intent, model capability, cost, and risk so requests can be routed deliberately instead of always using the largest available model.
-- **Cost-aware orchestration:** Treats model choice, retry behavior, context size, and tool use as budget-sensitive design decisions.
-- **Human-in-the-loop safety:** Keeps high-impact actions reviewable by a person and treats confirmation steps as part of the system design.
-- **Reliability controls:** Describes guardrails such as explicit scopes, fallbacks, logging, dry runs, and conservative defaults.
+- `.env` secret isolation and source-control hygiene;
+- human-in-the-loop review for consequential actions;
+- conservative public claims about authorship and maturity;
+- clear limitations of neutral synthesis;
+- explicit acknowledgement that multi-model agreement is not factual verification;
+- testing before public release.
 
-## Documentation Map
+See [SAFETY_NOTES.md](SAFETY_NOTES.md).
 
-- [DEPLOYMENT.md](DEPLOYMENT.md): Local deployment assumptions, environment boundaries, and operational notes.
-- [ROUTING_STRATEGY.md](ROUTING_STRATEGY.md): Model selection, routing criteria, cost awareness, and escalation patterns.
-- [SOUL.md](SOUL.md): The project philosophy and the kind of agent experience this documentation is meant to support.
+## Portfolio Overview
+
+```mermaid
+flowchart TD
+    A["My AI Engineering Portfolio"]
+    A --> B["Deployment & Automation"]
+    B --> B1["OpenClaw"]
+    B --> B2["Hermes"]
+    A --> C["Cost-Aware Orchestration"]
+    C --> C1["routing"]
+    C --> C2["tokens"]
+    C --> C3["cache"]
+    C --> C4["provider control"]
+    A --> D["Interactive Simulation"]
+    D --> D1["Fish Swarm Simulation"]
+    A --> E["Multi-LLM Coordination"]
+    E --> E1["Pantheon public repository"]
+    A --> F["Safety & Reliability"]
+    F --> F1["secret hygiene"]
+    F --> F2["verification"]
+    F --> F3["honest limitations"]
+```
+
+## Repository Map
+
+- [DEPLOYMENT.md](DEPLOYMENT.md): Deployment assumptions, environment boundaries, and operational notes for a personal agent stack.
+- [ROUTING_STRATEGY.md](ROUTING_STRATEGY.md): Model routing criteria, cost awareness, escalation, and fallback patterns.
 - [SAFETY_NOTES.md](SAFETY_NOTES.md): Human oversight, permission boundaries, reliability practices, and failure modes.
-- [LESSONS_LEARNED.md](LESSONS_LEARNED.md): Practical takeaways from documenting and reasoning about a personal agent stack.
-- [projects/fish-swarm-simulation/](projects/fish-swarm-simulation/README.md): Completed Codex-assisted fish swarm simulation prototype.
+- [LESSONS_LEARNED.md](LESSONS_LEARNED.md): Practical takeaways from documenting and reasoning about personal agent systems.
+- [projects/fish-swarm-simulation/](projects/fish-swarm-simulation/README.md): Embedded runnable Codex-assisted simulation prototype.
+- [projects/pantheon/README.md](projects/pantheon/README.md): Portfolio case study for Pantheon without duplicating its source code.
+- [Pantheon public repository](https://github.com/yusongcao2004/pantheon-llm-roundtable): Independent source repository for the Telegram-native multi-LLM roundtable.
+
+## Honest Limits
+
+- This repository is not a unified deployable large-scale agent platform.
+- OpenClaw and Hermes Agent are third-party projects; this portfolio documents my deployment, integration, configuration, and system-design practice around them.
+- Pantheon source code lives in its independent public repository, not in this portfolio hub.
+- Cost-aware orchestration is currently demonstrated as a cross-project engineering capability, not as an independently released package.
+- Multi-model discussion is not factual verification.
+- API calls can generate real provider costs.
+- A neutral synthesis prompt is not a formal guarantee of unbiased output.
 
 ## Current Status
 
-This is a personal documentation portfolio. It is useful as evidence of applied AI systems thinking, not as a drop-in software package.
-
-| Project | Status | Role in portfolio |
-|---|---|---|
-| Personal LLM Agent Deployment Stack | Documentation portfolio | Local-first agent deployment, routing, cost, and safety thinking |
-| Fish Swarm Simulation | Stable interactive prototype | Codex-assisted swarm intelligence experiment |
+| Area | Status | Role in portfolio |
+| --- | --- | --- |
+| Pantheon | Runnable public project in independent repository | Multi-LLM Telegram coordination, concise discussion, synthesis, token/cache accounting |
+| OpenClaw & Hermes exploration | Documentation and system design | Deployment, integration, routing, boundaries, workflow thinking around third-party tools |
+| Cost-aware orchestration | Cross-project capability | Provider/model selection, bounded rounds, concise prompting, token-aware design |
+| Fish Swarm Simulation | Embedded runnable prototype | Codex-assisted interactive engineering, performance, scope control, verification |
+| Safety & reliability | Cross-project practice | Secret hygiene, review gates, honest limitations, release discipline |
